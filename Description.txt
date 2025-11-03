@@ -1,0 +1,87 @@
+Perfect — here’s the whole outline in English, structured so your web developer can directly work with it:
+
+⸻
+
+Website Concept for House & Garden Service Company
+
+1. Homepage (First Impression + Storytelling)
+	•	Hero Section: Large image or short video (e.g., tidy garden, clean house, smiling staff).
+	•	Slogan / Claim: A clear sentence expressing your promise, e.g.
+“House & Garden in good hands – reliable, fair, close to you.”
+	•	Short Storytelling: Why the company exists, who is behind it, what values you stand for (quality, reliability, customer care).
+	•	Call-to-Action (CTA): Visible right away – “Request a Quote” or “Choose Your Service Now.”
+
+⸻
+
+2. Services Overview (structured & visual)
+	•	Garden Care: Lawn mowing, hedge trimming, weeding, seasonal work.
+	•	Household & Cleaning: House cleaning, window cleaning, deep cleaning.
+	•	Clearance & Transport: Decluttering, household removals, small transports.
+	•	Additional Services: Winter service, minor repairs, property management.
+
+👉 Each category should have an icon or photo, a short description, and a CTA: “Select Service.”
+
+⸻
+
+3. Service Configurator (Interactive Form with Multiple Choice)
+
+So clients can easily specify their needs. Example fields:
+	•	Type of Service (Garden, Cleaning, Clearance, Transport).
+	•	Scope (e.g., “small garden < 200 m²”, “full household clearance”).
+	•	Frequency (one-time, regular, seasonal).
+	•	Location (zip code, city).
+	•	Preferred date.
+
+👉 At the end: “Request a free, no-obligation quote.”
+This works as a lead generator so you receive clear inquiries.
+
+⸻
+
+4. Storytelling / Trust Building
+	•	About Us: Short intro of the founders, motivation, vision. Use authentic images.
+	•	Quality Promise: Punctuality, clean work, transparent pricing.
+	•	Testimonials: Short customer quotes, before–after pictures, success stories.
+	•	Credentials / Insurance: e.g. “Fully insured,” “Verified & reliable.”
+
+⸻
+
+5. Easy Contact Options
+	•	Phone number in the header (click-to-call on mobile).
+	•	WhatsApp Button for quick communication.
+	•	Short contact form for general inquiries.
+	•	Google Maps integration showing your service area.
+
+⸻
+
+6. Price / Offer Transparency
+	•	Display starting prices (e.g. “Lawn mowing from €39”).
+	•	For larger jobs: “We provide a fair fixed price quote after inspection.”
+	•	Optional: a small price table or “price calculator.”
+
+⸻
+
+7. Visual Style
+	•	Colors: Green (nature), Blue (trust), White (cleanliness).
+	•	Images: Before–after shots, smiling staff, maintained gardens and homes.
+	•	Icons: Tree for garden, broom for cleaning, truck for transport.
+
+⸻
+
+8. Technical Aspects & User Flow
+	•	Fully mobile-optimized.
+	•	Fast loading speed.
+	•	Clear menu structure: Home – Services – About Us – Prices – Contact.
+	•	CTA on every page (“Request an offer now”).
+
+⸻
+
+9. Future Options
+	•	Blog / Tips section (SEO-friendly, e.g. garden care tips, spring cleaning ideas).
+	•	Customer area for recurring services (login/subscription).
+	•	Integration of Google Reviews for credibility.
+
+⸻
+
+Example Claim
+
+“House & Garden Service – reliable, flexible, fair. We take care of your property so you have more time for what really matters.”
