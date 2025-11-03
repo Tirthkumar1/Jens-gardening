@@ -9,16 +9,17 @@ import ServicesSection from "../components/ServicesSection";
 import SiteFooter from "../components/SiteFooter";
 import StatsSection from "../components/StatsSection";
 import TestimonialsSection from "../components/TestimonialsSection";
-import { defaultLocale, getSiteCopy, type Locale } from "../data/siteContent";
+import { getSiteCopy, getStoredLocale, persistLocale, type Locale } from "../data/siteContent";
 
 function HomePage() {
   const location = useLocation();
-  const [locale, setLocale] = useState<Locale>(defaultLocale);
+  const [locale, setLocale] = useState<Locale>(() => getStoredLocale());
   const content = getSiteCopy(locale);
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     document.documentElement.lang = locale;
+    persistLocale(locale);
   }, [locale]);
 
   useEffect(() => {

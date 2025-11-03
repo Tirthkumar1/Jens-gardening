@@ -1,4 +1,4 @@
-export type Locale = "en" | "de";
+﻿export type Locale = "en" | "de";
 
 export type NavLinkChild = {
   label: string;
@@ -154,4 +154,5 @@ export type SiteCopy = {
   footer: FooterContent;
 };
 
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "de";
+

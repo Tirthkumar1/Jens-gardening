@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import type { Locale, SiteCopy } from "@/data/siteContent";
-import { defaultLocale, getSiteCopy } from "@/data/siteContent";
+import { getSiteCopy, getStoredLocale, persistLocale } from "@/data/siteContent";
 
 import PrimaryNavigation from "./PrimaryNavigation";
 import SiteFooter from "./SiteFooter";
@@ -13,13 +13,18 @@ type PageLayoutProps = {
 
 function PageLayout({ children }: PageLayoutProps) {
   const location = useLocation();
-  const [locale, setLocale] = useState<Locale>(defaultLocale);
+  const [locale, setLocale] = useState<Locale>(() => getStoredLocale());
   const content = getSiteCopy(locale);
   const currentYear = new Date().getFullYear();
 
   function handleToggleLanguage() {
     setLocale((previous) => (previous === "en" ? "de" : "en"));
   }
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    persistLocale(locale);
+  }, [locale]);
 
   useEffect(() => {
     if (location.hash) {

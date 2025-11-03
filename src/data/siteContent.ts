@@ -71,3 +71,23 @@ export const siteCopy: Record<Locale, SiteCopy> = {
 export function getSiteCopy(locale: Locale): SiteCopy {
   return siteCopy[locale] ?? siteCopy[defaultLocale];
 }
+
+const LOCALE_STORAGE_KEY = "garden-service-locale";
+
+const isLocale = (value: string | null): value is Locale =>
+  value === "en" || value === "de";
+
+export function getStoredLocale(): Locale {
+  if (typeof window === "undefined") {
+    return defaultLocale;
+  }
+  const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+  return isLocale(stored) ? stored : defaultLocale;
+}
+
+export function persistLocale(locale: Locale): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+  window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+}
