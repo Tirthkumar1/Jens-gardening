@@ -1,4 +1,11 @@
-import type { Locale, ServicesSectionContent } from "../types";
+import type { Locale, Service, ServicesSectionContent } from "../types";
+
+export const serviceDetailRouteMap: Record<Service["visualKey"], string> = {
+  garden: "/services/garden-care",
+  cleaning: "/services/household-cleaning",
+  transport: "/services/clearance-transport",
+  additional: "/services/additional",
+};
 
 export const servicesContent: Record<Locale, ServicesSectionContent> = {
   en: {

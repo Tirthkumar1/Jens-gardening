@@ -6,6 +6,16 @@ export const navigationContent: Record<Locale, NavigationContent> = {
     links: [
       { label: "Home", href: "/" },
       { label: "Prices", href: "/prices" },
+      {
+        label: "Services",
+        href: "/services",
+        children: [
+          { label: "Garden care", href: "/services/garden-care" },
+          { label: "Household & cleaning", href: "/services/household-cleaning" },
+          { label: "Clearance & transport", href: "/services/clearance-transport" },
+          { label: "Additional services", href: "/services/additional" },
+        ],
+      },
       { label: "About us", href: "/about" },
       {
         label: "Branch offices",
@@ -30,7 +40,7 @@ export const navigationContent: Record<Locale, NavigationContent> = {
     ],
     cta: { label: "Free Consultation", href: "/#contact" },
     languageToggle: {
-      label: "Deutsch",
+      label: "DE",
       ariaLabel: "Switch language to German",
     },
   },
@@ -39,6 +49,16 @@ export const navigationContent: Record<Locale, NavigationContent> = {
     links: [
       { label: "Startseite", href: "/" },
       { label: "Preise", href: "/prices" },
+      {
+        label: "Leistungen",
+        href: "/services",
+        children: [
+          { label: "Gartenpflege", href: "/services/garden-care" },
+          { label: "Haushalt & Reinigung", href: "/services/household-cleaning" },
+          { label: "Entruempelung & Transport", href: "/services/clearance-transport" },
+          { label: "Zusatzleistungen", href: "/services/additional" },
+        ],
+      },
       { label: "Ueber uns", href: "/about" },
       {
         label: "Standorte",
@@ -63,7 +83,7 @@ export const navigationContent: Record<Locale, NavigationContent> = {
     ],
     cta: { label: "Kostenlose Beratung", href: "/#contact" },
     languageToggle: {
-      label: "English",
+      label: "EN",
       ariaLabel: "Sprache zu Englisch wechseln",
     },
   },

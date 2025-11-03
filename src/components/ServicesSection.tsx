@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+import { serviceDetailRouteMap } from "../data/content/services";
 import type { Service } from "../data/siteContent";
 
 type ServicesSectionProps = {
@@ -37,26 +40,42 @@ function ServicesSection({ heading, services }: ServicesSectionProps) {
                 </span>
                 <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
                 <p className="text-sm text-white/85 md:text-base">{service.description}</p>
-                <a
-                  className="group/cta mt-auto inline-flex items-center gap-2 font-semibold text-sand-200 transition hover:text-white focus-visible:text-white"
-                  href="#contact"
-                >
-                  {service.ctaLabel}
-                  <svg
-                    aria-hidden="true"
-                    className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                  >
-                    <path
-                      d="M4 8h8M8 4l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
+                {(() => {
+                  const detailHref = serviceDetailRouteMap[service.visualKey] ?? "#contact";
+                  const isInternalRoute = detailHref.startsWith("/");
+                  const content = (
+                    <>
+                      {service.ctaLabel}
+                      <svg
+                        aria-hidden="true"
+                        className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M4 8h8M8 4l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </>
+                  );
+
+                  const commonClasses =
+                    "group/cta mt-auto inline-flex items-center gap-2 font-semibold text-sand-200 transition hover:text-white focus-visible:text-white";
+
+                  return isInternalRoute ? (
+                    <Link to={detailHref} className={commonClasses}>
+                      {content}
+                    </Link>
+                  ) : (
+                    <a href={detailHref} className={commonClasses}>
+                      {content}
+                    </a>
+                  );
+                })()}
               </div>
             </article>
           ))}
@@ -67,5 +86,4 @@ function ServicesSection({ heading, services }: ServicesSectionProps) {
 }
 
 export default ServicesSection;
-
 
