@@ -113,50 +113,64 @@ function PrimaryNavigation({ brand, links, cta, languageToggle, onToggleLanguage
       </div>
 
       {isMobileOpen ? (
-        <div className="md:hidden" id={mobileMenuId}>
-          <div className="mt-4 grid gap-3 rounded-3xl border border-white/15 bg-white/95 p-6 text-left text-forest-900 shadow-lg">
-            <ul className="space-y-3 text-sm font-semibold">
-              {links.map((link) => {
-                const childLinks: NavLinkChild[] = link.children ?? [];
-                return (
-                  <li key={`${link.href}-mobile`} className="space-y-2">
-                    {renderLink(link, "block", () => setIsMobileOpen(false))}
-                    {childLinks.length > 0 ? (
-                      <ul className="space-y-1 pl-3 text-xs font-medium text-ink-600">
-                        {childLinks.map((child) => (
-                          <li key={`${child.href}-mobile`}>
-                            {renderChild(child, () => setIsMobileOpen(false))}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </li>
-                );
-              })}
-            </ul>
+        <>
+          <button
+            type="button"
+            aria-hidden="true"
+            tabIndex={-1}
+            className="fixed inset-0 z-30 bg-forest-950/50 backdrop-blur-sm md:hidden"
+            onClick={() => setIsMobileOpen(false)}
+          />
+          <div className="absolute left-0 right-0 top-full z-40 md:hidden" id={mobileMenuId}>
+            <div className="mt-4 grid gap-3 rounded-3xl border border-white/15 bg-white/95 p-6 text-left text-forest-900 shadow-lg">
+              <ul className="space-y-3 text-sm font-semibold">
+                {links.map((link) => {
+                  const childLinks: NavLinkChild[] = link.children ?? [];
+                  return (
+                    <li key={`${link.href}-mobile`} className="space-y-2">
+                      {renderLink(link, "block", () => setIsMobileOpen(false))}
+                      {childLinks.length > 0 ? (
+                        <ul className="space-y-1 pl-3 text-xs font-medium text-ink-600">
+                          {childLinks.map((child) => (
+                            <li key={`${child.href}-mobile`}>
+                              {renderChild(child, () => setIsMobileOpen(false))}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </li>
+                  );
+                })}
+              </ul>
 
-            <div className="flex flex-col gap-3 pt-3">
-              {renderLink(
-                cta,
-                "inline-flex items-center justify-center rounded-full border border-forest-700 px-4 py-2 text-sm font-semibold text-forest-700 transition hover:bg-forest-700 hover:text-white",
-                () => setIsMobileOpen(false)
-              )}
-              <button
-                type="button"
-                onClick={() => {
-                  onToggleLanguage();
-                  setIsMobileOpen(false);
-                }}
-                className="inline-flex items-center justify-center rounded-full border border-forest-500/40 px-4 py-2 text-sm font-semibold text-forest-700 transition hover:bg-forest-500 hover:text-white"
-              >
-                {languageToggle.label}
-              </button>
+              <div className="flex flex-col gap-3 pt-3">
+                {renderLink(
+                  cta,
+                  "inline-flex items-center justify-center rounded-full border border-forest-700 px-4 py-2 text-sm font-semibold text-forest-700 transition hover:bg-forest-700 hover:text-white",
+                  () => setIsMobileOpen(false)
+                )}
+                <button
+                  type="button"
+                  onClick={() => {
+                    onToggleLanguage();
+                    setIsMobileOpen(false);
+                  }}
+                  className="inline-flex items-center justify-center rounded-full border border-forest-500/40 px-4 py-2 text-sm font-semibold text-forest-700 transition hover:bg-forest-500 hover:text-white"
+                >
+                  {languageToggle.label}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       ) : null}
     </nav>
   );
 }
 
 export default PrimaryNavigation;
+
+
+
+
+

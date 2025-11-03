@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 type SiteFooterProps = {
   brand: string;
@@ -33,13 +34,13 @@ function SiteFooter({
           <ul className="space-y-2 text-sm text-sand-50/80">
             {quickLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  className="inline-flex items-center gap-2 rounded-md px-2 py-1 transition hover:bg-white/10"
-                  href={link.href}
+                <Link
+                  className="inline-flex items-center gap-2 rounded-md px-2 py-1 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-900"
+                  to={link.href}
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-forest-500" aria-hidden="true" />
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
