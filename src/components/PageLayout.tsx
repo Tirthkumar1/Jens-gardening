@@ -1,5 +1,7 @@
+﻿"use client";
+
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 import type { Locale, SiteCopy } from "@/data/siteContent";
 import { getSiteCopy, getStoredLocale, persistLocale } from "@/data/siteContent";
@@ -12,7 +14,7 @@ type PageLayoutProps = {
 };
 
 function PageLayout({ children }: PageLayoutProps) {
-  const location = useLocation();
+  const pathname = usePathname();
   const [locale, setLocale] = useState<Locale>(() => getStoredLocale());
   const content = getSiteCopy(locale);
   const currentYear = new Date().getFullYear();
@@ -27,15 +29,16 @@ function PageLayout({ children }: PageLayoutProps) {
   }, [locale]);
 
   useEffect(() => {
-    if (location.hash) {
-      const target = document.querySelector(location.hash);
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
         return;
       }
     }
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, [location]);
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-sand-50 text-ink-900">

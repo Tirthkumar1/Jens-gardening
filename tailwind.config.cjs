@@ -1,9 +1,11 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  content: [
+    "./src/app/**/*.{ts,tsx,js,jsx}",
+    "./src/components/**/*.{ts,tsx,js,jsx}",
+    "./src/data/**/*.{ts,tsx,js,jsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -64,7 +66,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Segoe UI", ...fontFamily.sans],
+        sans: ["Segoe UI", "var(--font-geist-sans)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         hero: "0 16px 40px rgba(15, 38, 25, 0.25)",

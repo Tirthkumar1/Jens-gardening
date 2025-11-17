@@ -1,5 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 type SiteFooterProps = {
   brand: string;
@@ -36,7 +36,7 @@ function SiteFooter({
               <li key={link.href}>
                 <Link
                   className="inline-flex items-center gap-2 rounded-md px-2 py-1 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-900"
-                  to={link.href}
+                  href={link.href}
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-forest-500" aria-hidden="true" />
                   {link.label}

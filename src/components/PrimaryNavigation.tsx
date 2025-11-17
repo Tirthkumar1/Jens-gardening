@@ -1,6 +1,9 @@
+﻿"use client";
+
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import type { LanguageToggleContent, NavLink, NavLinkChild } from "../data/siteContent";
 
@@ -16,34 +19,41 @@ const isRoute = (href: string) => href.startsWith("/");
 const mobileMenuId = "primary-navigation-mobile";
 
 function PrimaryNavigation({ brand, links, cta, languageToggle, onToggleLanguage }: PrimaryNavigationProps) {
-  const location = useLocation();
+  const pathname = usePathname();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
     setIsMobileOpen(false);
-  }, [location]);
+  }, [pathname]);
 
-  const renderLink = (link: NavLink, className = "", onClick?: () => void) =>
-    isRoute(link.href) ? (
-      <Link to={link.href} className={className} onClick={onClick}>
-        {link.label}
-      </Link>
-    ) : (
+  const renderLink = (link: NavLink, className = "", onClick?: () => void) => {
+    if (isRoute(link.href)) {
+      return (
+        <Link href={link.href} className={className} onClick={onClick}>
+          {link.label}
+        </Link>
+      );
+    }
+    return (
       <a href={link.href} className={className} onClick={onClick}>
         {link.label}
       </a>
     );
+  };
 
-  const renderChild = (child: NavLinkChild, onClick?: () => void) =>
-    isRoute(child.href) ? (
-      <Link
-        to={child.href}
-        onClick={onClick}
-        className="block rounded-md px-2 py-1 hover:bg-forest-100/80 focus-visible:bg-forest-100/80"
-      >
-        {child.label}
-      </Link>
-    ) : (
+  const renderChild = (child: NavLinkChild, onClick?: () => void) => {
+    if (isRoute(child.href)) {
+      return (
+        <Link
+          href={child.href}
+          onClick={onClick}
+          className="block rounded-md px-2 py-1 hover:bg-forest-100/80 focus-visible:bg-forest-100/80"
+        >
+          {child.label}
+        </Link>
+      );
+    }
+    return (
       <a
         href={child.href}
         onClick={onClick}
@@ -52,6 +62,7 @@ function PrimaryNavigation({ brand, links, cta, languageToggle, onToggleLanguage
         {child.label}
       </a>
     );
+  };
 
   return (
     <nav className="relative z-10 w-full text-white" aria-label="Primary">
@@ -169,8 +180,3 @@ function PrimaryNavigation({ brand, links, cta, languageToggle, onToggleLanguage
 }
 
 export default PrimaryNavigation;
-
-
-
-
-

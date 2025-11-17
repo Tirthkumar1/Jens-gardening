@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import PageLayout from "../components/PageLayout";
+
+import PageLayout from "@/components/PageLayout";
 
 type Opening = {
   title: string;
@@ -12,23 +15,23 @@ const openings: Opening[] = [
   {
     title: "Senior Horticulturist (m/w/d)",
     summary:
-      "Planen Sie maßgeschneiderte Pflanzkonzepte, begleiten Sie unser Gärtnerteam fachlich und arbeiten Sie eng mit unserem Account-Service zusammen.",
+      "Plan tailored planting concepts, guide our gardening crews, and collaborate closely with our account team.",
     department: "Gartenbau",
-    location: "Berlin – Prenzlauer Berg",
+    location: "Berlin — Prenzlauer Berg",
   },
   {
     title: "Teamleitung Gartenpflege (m/w/d)",
     summary:
-      "Koordinieren Sie die wöchentlichen Einsätze, sichern Sie Qualitätsstandards und unterstützen Sie neue Kolleginnen und Kollegen im Feld.",
+      "Coordinate weekly routes, uphold quality standards, and support new teammates as they onboard in the field.",
     department: "Operations",
-    location: "Hamburg – Nord",
+    location: "Hamburg — Nord",
   },
   {
     title: "Account Specialist (m/w/d)",
     summary:
-      "Betreuen Sie Kundinnen und Kunden, planen Sie Einsätze, versenden Sie Foto-Updates und erstellen Sie Angebote für laufende Projekte.",
+      "Serve clients, plan schedules, send photo updates, and prepare proposals for ongoing projects.",
     department: "Kundenbetreuung",
-    location: "München – Zentrum",
+    location: "Muenchen — Zentrum",
   },
 ];
 
@@ -37,7 +40,7 @@ type ApplicationFormState = {
   opening?: Opening;
 };
 
-function JobsPage() {
+export default function JobsPage() {
   const [formState, setFormState] = useState<ApplicationFormState>({ isVisible: false });
 
   function handleApply(opening: Opening) {
@@ -60,7 +63,9 @@ function JobsPage() {
             <header className="space-y-4 text-center">
               <h1 className="text-3xl font-semibold text-forest-900 md:text-4xl">Join the Bloomscape team</h1>
               <p className="text-base leading-relaxed text-ink-600 md:text-lg">
-                We hire people who care deeply for living spaces and the people who enjoy them. Explore our upcoming roles and send your resume to jobs@bloomscapeservices.com to receive updates as soon as full postings go live.
+                We hire people who care deeply for living spaces and the people who enjoy them. Explore our upcoming
+                roles and send your resume to jobs@bloomscapeservices.com to receive updates as soon as full postings go
+                live.
               </p>
             </header>
 
@@ -93,12 +98,10 @@ function JobsPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h2 className="text-2xl font-semibold text-forest-900">
-                      Bewerbung – {formState.opening.title}
-                    </h2>
+                    <h2 className="text-2xl font-semibold text-forest-900">Bewerbung – {formState.opening.title}</h2>
                     <p className="text-sm text-ink-600">
-                      Wir sammeln Ihre Angaben entsprechend §26 BDSG zur Durchführung des Bewerbungsprozesses.
-                      Alle Felder mit * sind erforderlich.
+                      Wir sammeln Ihre Angaben zur Durchfuehrung des Bewerbungsprozesses. Alle Felder mit * sind
+                      erforderlich.
                     </p>
                   </div>
                   <button
@@ -106,7 +109,7 @@ function JobsPage() {
                     onClick={handleCloseForm}
                     className="rounded-full border border-forest-500/20 px-3 py-1 text-xs font-semibold text-forest-700 transition hover:bg-forest-500 hover:text-white"
                   >
-                    Formular schließen
+                    Formular schliessen
                   </button>
                 </div>
 
@@ -115,18 +118,18 @@ function JobsPage() {
                     <span>Vorname *</span>
                     <input
                       name="firstName"
+                      type="text"
                       required
-                      autoComplete="given-name"
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
+                      className="w-full rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
                     />
                   </label>
                   <label className="grid gap-1 text-sm font-medium text-ink-900">
                     <span>Nachname *</span>
                     <input
                       name="lastName"
+                      type="text"
                       required
-                      autoComplete="family-name"
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
+                      className="w-full rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
                     />
                   </label>
                   <label className="grid gap-1 text-sm font-medium text-ink-900">
@@ -135,8 +138,7 @@ function JobsPage() {
                       name="email"
                       type="email"
                       required
-                      autoComplete="email"
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
+                      className="w-full rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
                     />
                   </label>
                   <label className="grid gap-1 text-sm font-medium text-ink-900">
@@ -145,51 +147,38 @@ function JobsPage() {
                       name="phone"
                       type="tel"
                       required
-                      autoComplete="tel"
-                      placeholder="+49 ..."
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
+                      className="w-full rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
                     />
                   </label>
                   <label className="grid gap-1 text-sm font-medium text-ink-900 md:col-span-2">
-                    <span>Verfügbarkeit (ab wann?) *</span>
+                    <span>Ort / bevorzugter Standort</span>
                     <input
-                      name="availability"
-                      type="date"
-                      required
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
+                      name="location"
+                      type="text"
+                      className="w-full rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
                     />
                   </label>
                   <label className="grid gap-1 text-sm font-medium text-ink-900 md:col-span-2">
-                    <span>Kurzes Motivationsschreiben *</span>
+                    <span>Warum passt diese Rolle zu Ihnen?</span>
                     <textarea
                       name="motivation"
-                      required
                       rows={4}
-                      placeholder="Warum möchten Sie bei Bloomscape arbeiten?"
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
+                      className="w-full rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
                     />
                   </label>
-                  <label className="grid gap-1 text-sm font-medium text-ink-900 md:col-span-2">
-                    <span>Link zu Lebenslauf / Portfolio (optional)</span>
-                    <input
-                      name="portfolio"
-                      type="url"
-                      placeholder="https://..."
-                      className="rounded-2xl border border-forest-500/20 bg-white px-4 py-3 text-base text-ink-900 shadow-inner focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/40"
-                    />
-                  </label>
-                  <label className="md:col-span-2 flex items-start gap-3 text-sm text-ink-600">
-                    <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-forest-500/40" />
-                    <span>
-                      Ich bin damit einverstanden, dass Bloomscape meine Angaben zur Bearbeitung meiner Bewerbung nutzt. Weitere Informationen erhalte ich in der Datenschutzerklärung.
-                    </span>
-                  </label>
-                  <div className="md:col-span-2 flex justify-end">
+                  <div className="md:col-span-2 flex flex-wrap gap-3">
                     <button
                       type="submit"
-                      className="rounded-full bg-forest-700 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-forest-500 focus-visible:-translate-y-0.5 focus-visible:bg-forest-500"
+                      className="inline-flex items-center justify-center rounded-full bg-forest-700 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-forest-500 focus-visible:-translate-y-0.5 focus-visible:bg-forest-500"
                     >
                       Bewerbung absenden
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleCloseForm}
+                      className="inline-flex items-center justify-center rounded-full border border-forest-500/30 px-5 py-3 text-sm font-semibold text-forest-700 transition hover:bg-forest-500 hover:text-white"
+                    >
+                      Abbrechen
                     </button>
                   </div>
                 </form>
@@ -201,5 +190,3 @@ function JobsPage() {
     </PageLayout>
   );
 }
-
-export default JobsPage;

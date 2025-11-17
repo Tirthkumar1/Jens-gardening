@@ -1,4 +1,6 @@
-import PageLayout from "../components/PageLayout";
+"use client";
+
+import PageLayout from "@/components/PageLayout";
 
 const faqItems = [
   {
@@ -18,7 +20,7 @@ const faqItems = [
   },
 ];
 
-function FaqPage() {
+export default function FaqPage() {
   return (
     <PageLayout>
       {() => (
@@ -37,9 +39,7 @@ function FaqPage() {
                   key={item.question}
                   className="overflow-hidden rounded-3xl border border-forest-500/15 bg-white/95 p-5 shadow-md shadow-forest-950/10"
                 >
-                  <summary className="cursor-pointer text-lg font-semibold text-forest-900">
-                    {item.question}
-                  </summary>
+                  <summary className="cursor-pointer text-lg font-semibold text-forest-900">{item.question}</summary>
                   <p className="mt-3 text-sm text-ink-600 md:text-base">{item.answer}</p>
                 </details>
               ))}
@@ -50,5 +50,3 @@ function FaqPage() {
     </PageLayout>
   );
 }
-
-export default FaqPage;

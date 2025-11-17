@@ -1,6 +1,8 @@
-import PageLayout from "../../components/PageLayout";
+"use client";
 
-function AdditionalServicesPage() {
+import PageLayout from "@/components/PageLayout";
+
+export default function AdditionalServicesPage() {
   return (
     <PageLayout>
       {() => (
@@ -23,5 +25,3 @@ function AdditionalServicesPage() {
     </PageLayout>
   );
 }
-
-export default AdditionalServicesPage;

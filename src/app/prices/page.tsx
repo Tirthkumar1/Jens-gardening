@@ -1,4 +1,6 @@
-import PageLayout from "../components/PageLayout";
+"use client";
+
+import PageLayout from "@/components/PageLayout";
 
 const priceTiers = [
   {
@@ -33,14 +35,16 @@ const priceTiers = [
   },
 ];
 
-function PricesPage() {
+export default function PricesPage() {
   return (
     <PageLayout>
       {() => (
         <section className="section-shell">
           <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-10">
-            <div className="text-center space-y-4">
-              <h1 className="text-3xl font-semibold text-forest-900 md:text-4xl">Transparent pricing for every property</h1>
+            <div className="space-y-4 text-center">
+              <h1 className="text-3xl font-semibold text-forest-900 md:text-4xl">
+                Transparent pricing for every property
+              </h1>
               <p className="mx-auto max-w-3xl text-base leading-relaxed text-ink-600 md:text-lg">
                 Choose the level of care your home or business needs. Every plan includes a dedicated specialist, proactive recommendations, and easy communication through your preferred channel.
                 Request a consultation to mix and match services or add upgrades like irrigation support and holiday styling.
@@ -57,7 +61,7 @@ function PricesPage() {
                     <h2 className="text-xl font-semibold text-forest-900">{tier.name}</h2>
                     <p className="text-3xl font-semibold text-forest-700">
                       {tier.price}
-                      <span className="text-sm font-normal text-ink-600"> · {tier.cadence}</span>
+                      <span className="text-sm font-normal text-ink-600"> – {tier.cadence}</span>
                     </p>
                   </div>
                   <ul className="space-y-2 text-sm text-ink-600">
@@ -83,5 +87,3 @@ function PricesPage() {
     </PageLayout>
   );
 }
-
-export default PricesPage;

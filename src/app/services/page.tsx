@@ -1,7 +1,9 @@
-import PageLayout from "../../components/PageLayout";
-import { serviceDetailRouteMap } from "../../data/content/services";
+"use client";
 
-function ServicesOverviewPage() {
+import PageLayout from "@/components/PageLayout";
+import { serviceDetailRouteMap } from "@/data/content/services";
+
+export default function ServicesOverviewPage() {
   return (
     <PageLayout>
       {(content) => {
@@ -78,5 +80,3 @@ function ServicesOverviewPage() {
     </PageLayout>
   );
 }
-
-export default ServicesOverviewPage;

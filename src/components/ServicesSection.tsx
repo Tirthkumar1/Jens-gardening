@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import { serviceDetailRouteMap } from "../data/content/services";
 import type { Service } from "../data/siteContent";
@@ -67,7 +67,7 @@ function ServicesSection({ heading, services }: ServicesSectionProps) {
                     "group/cta mt-auto inline-flex items-center gap-2 font-semibold text-sand-200 transition hover:text-white focus-visible:text-white";
 
                   return isInternalRoute ? (
-                    <Link to={detailHref} className={commonClasses}>
+                    <Link href={detailHref} className={commonClasses}>
                       {content}
                     </Link>
                   ) : (
@@ -86,4 +86,3 @@ function ServicesSection({ heading, services }: ServicesSectionProps) {
 }
 
 export default ServicesSection;
-

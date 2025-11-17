@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import ContactSection from "../components/ContactSection";
-import HeroSection from "../components/HeroSection";
-import HighlightsSection from "../components/HighlightsSection";
-import MissionSection from "../components/MissionSection";
-import SeasonalSpotlightSection from "../components/SeasonalSpotlightSection";
-import ServicesSection from "../components/ServicesSection";
-import SiteFooter from "../components/SiteFooter";
-import StatsSection from "../components/StatsSection";
-import TestimonialsSection from "../components/TestimonialsSection";
-import { getSiteCopy, getStoredLocale, persistLocale, type Locale } from "../data/siteContent";
+"use client";
 
-function HomePage() {
-  const location = useLocation();
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+import ContactSection from "@/components/ContactSection";
+import HeroSection from "@/components/HeroSection";
+import HighlightsSection from "@/components/HighlightsSection";
+import MissionSection from "@/components/MissionSection";
+import SeasonalSpotlightSection from "@/components/SeasonalSpotlightSection";
+import ServicesSection from "@/components/ServicesSection";
+import SiteFooter from "@/components/SiteFooter";
+import StatsSection from "@/components/StatsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import { getSiteCopy, getStoredLocale, persistLocale, type Locale } from "@/data/siteContent";
+
+export default function HomePage() {
+  const pathname = usePathname();
   const [locale, setLocale] = useState<Locale>(() => getStoredLocale());
   const content = getSiteCopy(locale);
   const currentYear = new Date().getFullYear();
@@ -23,18 +26,17 @@ function HomePage() {
   }, [locale]);
 
   useEffect(() => {
-    if (location.pathname !== "/") {
-      return;
-    }
-    if (location.hash) {
-      const target = document.querySelector(location.hash);
+    if (pathname !== "/") return;
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
         return;
       }
     }
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, [location]);
+  }, [pathname]);
 
   function handleToggleLanguage() {
     setLocale((previous) => (previous === "en" ? "de" : "en"));
@@ -60,28 +62,19 @@ function HomePage() {
       <main className="flex-1">
         <StatsSection stats={content.sections.stats.items} />
         <MissionSection content={content.sections.mission} />
-        <ServicesSection
-          heading={content.sections.services.heading}
-          services={content.sections.services.items}
-        />
+        <ServicesSection heading={content.sections.services.heading} services={content.sections.services.items} />
         <HighlightsSection
           heading={content.sections.highlights.heading}
           highlights={content.sections.highlights.items}
           brand={content.navigation.brand}
         />
-        <SeasonalSpotlightSection
-          heading={content.sections.seasonal.heading}
-          tips={content.sections.seasonal.items}
-        />
+        <SeasonalSpotlightSection heading={content.sections.seasonal.heading} tips={content.sections.seasonal.items} />
         <TestimonialsSection
           heading={content.sections.testimonials.heading}
           citeSeparator={content.sections.testimonials.citeSeparator}
           testimonials={content.sections.testimonials.items}
         />
-        <ContactSection
-          serviceOptions={content.sections.services.items}
-          content={content.sections.contact}
-        />
+        <ContactSection serviceOptions={content.sections.services.items} content={content.sections.contact} />
       </main>
 
       <SiteFooter
@@ -95,10 +88,3 @@ function HomePage() {
     </div>
   );
 }
-
-export default HomePage;
-
-
-
-
-
