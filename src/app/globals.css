@@ -59,10 +59,14 @@
   }
 
   body {
-    @apply min-h-screen bg-background font-sans text-foreground antialiased overflow-x-hidden;
+    @apply relative min-h-screen bg-background font-sans text-foreground antialiased overflow-x-hidden;
     height: 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
+
+  body::before {
+    content: none;
   }
 
   body::-webkit-scrollbar {

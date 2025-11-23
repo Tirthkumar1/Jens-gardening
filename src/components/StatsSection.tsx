@@ -86,12 +86,14 @@ function StatsSection({ stats }: StatsSectionProps) {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      className="section-shell bg-white/80 backdrop-blur-sm"
-      aria-label="Service impact"
-    >
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-10 rounded-[2.5rem] bg-forest-100/70 p-6 shadow-lg shadow-forest-950/10 md:p-10">
+    <section ref={sectionRef} className="section-shell" aria-label="Service impact">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-10 rounded-[2.5rem] bg-forest-100/70 p-6 shadow-lg shadow-forest-950/10 md:p-10 relative overflow-hidden">
+        <img
+          src="/images/vine/vine.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-12 -top-16 w-40 opacity-80 drop-shadow-[0_15px_30px_rgba(9,20,13,0.35)]"
+        />
         <div className="grid gap-6 md:grid-cols-4">
           {stats.map((stat, index) => (
             <article
